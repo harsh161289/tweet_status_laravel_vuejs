@@ -21,14 +21,9 @@ class TwitterService
 
     private $oath_callback;
 
-    private $access_token_object;
-
-
     function __construct($_consumerKey, $_consumerSecretKey, $_access_token, $_access_token_secret, $_oath_callback)
     {
         $this->oath_callback = $_oath_callback;
-        $this->access_token_object[self::ACCESS_TOKEN] = $_access_token;
-        $this->access_token_object[self::ACCESS_TOKEN_SECRET] = $_access_token_secret;
 
         $this->twitterOAuth = new TwitterOAuth($_consumerKey, $_consumerSecretKey, $_access_token, $_access_token_secret);
     }
