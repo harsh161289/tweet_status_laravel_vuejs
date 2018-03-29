@@ -12,8 +12,6 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 class TwitterService
 {
 
-    const ACCESS_TOKEN = "ACCESS_TOKEN";
-    const ACCESS_TOKEN_SECRET = "ACCESS_TOKEN_SECRET";
     const SHOW_STATUSES = "statuses/show";
     const OAUTH_TOKEN = "oauth/request_token";
 
