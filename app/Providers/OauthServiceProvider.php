@@ -20,9 +20,6 @@ class OauthServiceProvider extends ServiceProvider {
 
             return new TwitterService($config['TWITTER_CONSUMER_KEY'],
                 $config['TWITTER_CONSUMER_SECRETKEY'],$config['TWITTER_ACCESS_TOKEN'], $config['TWITTER_ACCESS_TOKEN_SECRETKEY'], $config['TWITTER_CALLBACK_URL']);
-
-            // return new TwitterService($config['TWITTER_CONSUMER_KEY'],
-            // 	$config['TWITTER_CONSUMER_SECRETKEY'], "sK4d6AAAAAAA5JGUAAABYmIskJE ", "CcI5ST1DM2l3jQ3cNMoTGDfwB4B4GlJ0", $config['TWITTER_CALLBACK_URL']);
         });
     }
 

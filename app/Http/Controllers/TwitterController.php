@@ -37,7 +37,7 @@ class TwitterController extends Controller
     public function getStatus(Request $request)
     {
         $input = $request->all();
-        $response_object = $this->twitterService->getTweetData($input['id']);
+        $response_object = $this->twitterService->findById($input['id']);
         return response()->json([
             "tweet_id" => $response_object->id,
             "retweet_count" => $response_object->retweet_count,

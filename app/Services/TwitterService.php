@@ -34,47 +34,12 @@ class TwitterService
     }
 
     /**
-     * @return bool
-     * @throws \Abraham\TwitterOAuth\TwitterOAuthException
-     */
-    function getConnection()
-    {
-        $response = $this->twitterOAuth->get("account/verify_credentials");
-        print_r($response);
-        if (!empty($response->errors)) {
-            // DebugBar::info("Twitter connection failed with code: ".$error->code." , message: ".$error->message);
-
-            $this->initializeNewToken();
-            $this->twitterOAuth->setOauthToken($this->access_token_object[self::ACCESS_TOKEN], $this->access_token_object[self::ACCESS_TOKEN_SECRET]);
-            $this->getConnection();
-
-        } elseif (!empty($response->id)) {
-            session(self::ACCESS_TOKEN, $this->access_token_object[self::ACCESS_TOKEN]);
-            session(self::ACCESS_TOKEN_SECRET, $this->access_token_object[self::ACCESS_TOKEN_SECRET]);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * @throws \Abraham\TwitterOAuth\TwitterOAuthException
-     */
-    function initializeNewToken()
-    {
-        $response = $this->twitterOAuth->oauth(self::ACCESS_TOKEN, array('oauth_callback' => $this->oath_callback));
-
-        if ($response["oauth_callback_confirmed"] == true || $response["oauth_callback_confirmed"] == "true") {
-            $this->access_token_object[self::ACCESS_TOKEN] = $response['oauth_token'];
-            $this->access_token_object[self::ACCESS_TOKEN_SECRET] = $response['oauth_token_secret'];
-        }
-    }
-
-    /**
+     * Search tweet status based on id
+     *
      * @param $tweet_id
      * @return array|object
      */
-    function getTweetData($tweet_id)
+    public function findById($tweet_id)
     {
         if (empty($tweet_id)) {
             throw new InvalidArgumentException("Tweet id should cannot be an empty");
