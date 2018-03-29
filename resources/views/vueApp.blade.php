@@ -17,7 +17,7 @@
 		<header class="page-header">
 			<div class="branding">
 				<img src="https://vuejs.org/images/logo.png" alt="Logo" title="Home page" class="logo"/>
-				<h1>Tweet status with Vue.js & Laravel 5.5 </h1>
+				<h1>Tweet status with Vue.js & Laravel 5.6 </h1>
 			</div>
 		</header>
 	</div>
